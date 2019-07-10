@@ -7,7 +7,7 @@ class todoList extends PolymerElement{
         return html`
             <dom-repeat items="{{todos}}" as="todo" observe="done" filter="{{_filter(filterBy)}}">
                 <template>
-                    <todo-item todo="{{todo}}"></todo-item>
+                    <todo-item todo="{{todo}}" on-delete="_delete"></todo-item>
                 </template>
             </dom-repeat>
         `;
@@ -32,6 +32,10 @@ class todoList extends PolymerElement{
                 return false;
             }
         }
+    }
+    _delete(e){
+        let index=this.todos.indexOf(e.detail);
+        this.splice('todos',index,1);
     }
 }
 
