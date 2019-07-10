@@ -11,8 +11,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 import { html } from 'lit-element';
 import { PageViewElement } from './page-view-element.js';
 import { SharedStyles } from './shared-styles.js';
+import { connect } from 'pwa-helpers/connect-mixin.js';
+import { store } from '../store.js';
 
-class ToDoDesc extends PageViewElement {
+class ToDoDesc extends connect(store)(PageViewElement) {
 
   static get styles() {
     return [
