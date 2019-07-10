@@ -1,0 +1,8 @@
+build/
+node_modules/
+test/integration/screenshots-current/
+_site/
+.DS_Store
+.github/
+.idea/
+package-lock.json
