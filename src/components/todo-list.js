@@ -12,6 +12,15 @@ class todoList extends PolymerElement{
             </dom-repeat>
         `;
     }
+    connectedCallback() {
+        super.connectedCallback();
+        this.addEventListener('delete', function (e) {
+            const index=this.todos.indexOf(e.detail.todo);
+            this.splice('todos',index,1);
+            console.log(this.todos);
+        });
+    }
+
     static get properties(){
         return {
             filterBy: {
