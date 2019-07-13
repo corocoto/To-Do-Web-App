@@ -187,6 +187,11 @@ class MyApp extends connect(store)(LitElement) {
             padding-right: 0px;
           }
         }
+        
+        footer a{
+            text-decoration: none;
+            color: inherit;
+        }
       `
     ];
   }
@@ -224,7 +229,7 @@ class MyApp extends connect(store)(LitElement) {
       </main>
 
       <footer>
-        <p>Made with &hearts; by CreativeRusBear</p>
+        <p>Made with &hearts; by <a href="https://github.com/CreativeRusBear" target="_blank">CreativeRusBear</a></p>
       </footer>
 
       <snack-bar ?active="${this._snackbarOpened}">
