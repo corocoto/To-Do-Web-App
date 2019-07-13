@@ -48,7 +48,8 @@ class todoView extends PolymerElement {
     _addItem(){
         if (this.value) this.push('todos',{
             task: this.value,
-            done: false
+            done: false,
+            archive: false
         });
         this.value=null;
     }
