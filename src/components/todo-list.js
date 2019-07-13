@@ -17,7 +17,6 @@ class todoList extends PolymerElement{
         this.addEventListener('delete', function (e) {
             const index=this.todos.indexOf(e.detail.todo);
             this.splice('todos',index,1);
-            console.log(this.todos);
         });
     }
 
