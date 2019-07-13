@@ -3,6 +3,7 @@ import '@polymer/paper-checkbox/paper-checkbox';
 import '@polymer/paper-material/paper-material'
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import '@polymer/iron-icons/iron-icons.js';
+import '@polymer/polymer/lib/legacy/legacy-element-mixin.js';
 
 class todoItem extends PolymerElement {
     static get template() {
@@ -28,7 +29,8 @@ class todoItem extends PolymerElement {
         `;
     }
     _delete(){
-        this.fire('delete', this.todo)
+        this.dispatchEvent(new CustomEvent('delete', {bubbles: true,
+            composed: true, detail: {todo: this.todo}}));
     }
 }
 

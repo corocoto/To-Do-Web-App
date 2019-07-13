@@ -7,11 +7,20 @@ class todoList extends PolymerElement{
         return html`
             <dom-repeat items="{{todos}}" as="todo" observe="done" filter="{{_filter(filterBy)}}">
                 <template>
-                    <todo-item todo="{{todo}}" on-delete="_delete"></todo-item>
+                    <todo-item todo="{{todo}}"></todo-item>
                 </template>
             </dom-repeat>
         `;
     }
+    connectedCallback() {
+        super.connectedCallback();
+        this.addEventListener('delete', function (e) {
+            const index=this.todos.indexOf(e.detail.todo);
+            this.splice('todos',index,1);
+            console.log(this.todos);
+        });
+    }
+
     static get properties(){
         return {
             filterBy: {
@@ -32,10 +41,6 @@ class todoList extends PolymerElement{
                 return false;
             }
         }
-    }
-    _delete(e){
-        let index=this.todos.indexOf(e.detail);
-        this.splice('todos',index,1);
     }
 }
 
